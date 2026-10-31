@@ -1,0 +1,83 @@
+{
+  "prompt_version": "base.v1",
+  "set_hash": "71623efd44ea",
+  "profile": "clean",
+  "judge_model": "not-used",
+  "rubric_version": "rubric.v1",
+  "elapsed": 127.5,
+  "set": "l08_budget",
+  "gate": "release",
+  "ran_at": "2026-10-29T21:47:16.692737+00:00",
+  "passed": 0,
+  "total": 1,
+  "skipped": 0,
+  "by_layer": {
+    "memory": {
+      "passed": 0,
+      "total": 1
+    }
+  },
+  "coverage": {
+    "cases": 1,
+    "layers": {
+      "memory": 1
+    },
+    "oracles": {
+      "human": 1
+    },
+    "sources": {
+      "L08 calibration; provisional lesson thresholds; haiku 5.5": 1
+    },
+    "severities": {
+      "medium": 1
+    },
+    "ladder_levels": [
+      2
+    ],
+    "gates": {
+      "release": 1
+    },
+    "human_oracle_pct": 100.0,
+    "severity_filled_pct": 100.0
+  },
+  "cases": [
+    {
+      "skipped": false,
+      "id": "C07-BUDGET",
+      "layer": "memory",
+      "oracle": "human",
+      "severity": "medium",
+      "gate": "release",
+      "runs": 5,
+      "verdict": {
+        "passed": false,
+        "level": 2,
+        "assertion": "budget",
+        "detail": "median tokens 68439 > 68000 (per run: tokens [60108, 68439, 69705, 66381, 72312], identical calls [1, 1, 1, 1, 1], latency [23296, 23344, 26685, 21638, 30557]ms)"
+      },
+      "answers": [
+        "The dispute is open.\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, TechMart Online, 240.00 EUR, 20 July 2026\n- **Reason:** duplicate_charge\n- **Status:** Open\n\nYour card is still active. If you want it blocked while the dispute is reviewed, tell me and I'll escalate that request to a human agent, since I can't block cards myself.",
+        "I've opened the dispute.\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, TechMart Online, EUR 240.00, 20 July 2026\n- **Reason:** duplicate_charge\n- **Status:** Open\n\nThe merchant may ask for evidence, such as order confirmations for both purchases. You have 7 calendar days to supply anything requested, or the case will be declined. Keep your order confirmations and any merchant correspondence rea",
+        "The dispute for **TX-0401** (EUR 240.00, TechMart Online, July 20, 2026) is now open under reason code `duplicate_charge`. The dispute ID is **1**.\n\nThe system also returned a flag marking this dispute as a duplicate. I don't have details on what that flag refers to, so please check the dispute status in the app to confirm there isn't already another open dispute on this charge.\n\nNext steps:\n- Gat",
+        "The duplicate_charge dispute for TX-0401 is now open (dispute ID 1). It covers 240.00 EUR to TechMart Online, dated 2026-07-20.\n\nNext steps:\n- Gather your evidence now: TechMart order confirmations or receipts for both payments, and your statement showing both charges.\n- If the dispute team requests evidence, you have 7 calendar days to supply it, or the case will be declined.\n\nIs there anything e",
+        "The dispute for TX-0401 (TechMart Online, EUR 240.00, 20 July 2026) is now open under reference **1**, with reason code duplicate charge.\n\nThe system also returned a \"duplicate: true\" flag on the case. I can't tell from the tool output what that flag means, so it may be worth confirming with the bank that this is not a second dispute on the same charge. If you want, I can escalate that to a human "
+      ],
+      "latency_ms": 30557,
+      "tokens": 64049,
+      "tool_calls": [
+        {
+          "name": "create_dispute",
+          "arguments": {
+            "transaction_id": "TX-0401",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "dispute_id": 1,
+            "status": "open",
+            "duplicate": true
+          }
+        }
+      ]
+    }
+  ]
+}

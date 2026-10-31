@@ -1,0 +1,82 @@
+{
+  "prompt_version": "base.v1",
+  "set_hash": "a0cf5de383ea",
+  "profile": "lesson-08",
+  "judge_model": "not-used",
+  "rubric_version": "rubric.v1",
+  "elapsed": 116.4,
+  "set": "l08_budget",
+  "gate": "release",
+  "ran_at": "2026-10-29T22:17:47.276209+00:00",
+  "passed": 1,
+  "total": 1,
+  "skipped": 0,
+  "by_layer": {
+    "memory": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "coverage": {
+    "cases": 1,
+    "layers": {
+      "memory": 1
+    },
+    "oracles": {
+      "human": 1
+    },
+    "sources": {
+      "L08 clean calibration 2026-10-29: median 68439 tokens + 5%, rounded to 72000; haiku 5.5": 1
+    },
+    "severities": {
+      "medium": 1
+    },
+    "ladder_levels": [
+      2
+    ],
+    "gates": {
+      "release": 1
+    },
+    "human_oracle_pct": 100.0,
+    "severity_filled_pct": 100.0
+  },
+  "cases": [
+    {
+      "skipped": false,
+      "id": "C07-BUDGET",
+      "layer": "memory",
+      "oracle": "human",
+      "severity": "medium",
+      "gate": "release",
+      "runs": 5,
+      "verdict": {
+        "passed": true,
+        "level": 2,
+        "assertion": "budget",
+        "detail": "per run: tokens [71767, 65967, 68823, 85015, 72904], identical calls [1, 1, 1, 1, 1], latency [24302, 23803, 22269, 22841, 22323]ms"
+      },
+      "answers": [
+        "The duplicate-charge dispute for TX-0401 is now open.\n\n- **Dispute ID:** 1\n- **Status:** Open\n- **Transaction:** TX-0401, €240.00, TechMart Online, 2026-07-20\n- **Reason code:** duplicate_charge\n\nI can't tell you from here what documents the review will need. If you have order confirmations or receipts from TechMart Online for both payments, keep them ready in case the dispute team asks for them. ",
+        "The dispute is already open, so I haven't opened another one. Here is its current state:\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, €240.00, TechMart Online, 2026-07-20\n- **Reason:** Duplicate charge\n- **Status:** Open\n\nOpening a second dispute on the same transaction could create a duplicate case, so I didn't. If you meant the other TechMart charge (TX-0402, 2026-07-14), tell me and I'll ch",
+        "The dispute is open.\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, TechMart Online, 240.00 EUR, 20 July 2026\n- **Reason:** Duplicate charge\n- **Status:** Open\n\nPlease gather your TechMart Online order confirmations or receipts for both charges, and any emails from the merchant about the second payment. If the case requests evidence, you have 7 calendar days to supply it, or it will be declined.",
+        "The dispute is open.\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, TechMart Online, EUR 240.00, 2026-07-20\n- **Reason code:** duplicate_charge\n- **Status:** open\n\nNext steps:\n- You may be asked for supporting evidence, such as the TechMart order confirmations and any merchant correspondence. If requested evidence is not supplied within 7 calendar days, the case is declined. Please send it promp",
+        "The dispute is open.\n\n- **Dispute ID:** 1\n- **Transaction:** TX-0401, TechMart Online, 240.00 EUR, 2026-07-20\n- **Reason:** duplicate_charge\n- **Status:** Open\n\nThe filing deadline was 2026-09-18, so the dispute was filed in time. If you want to withdraw it, the process allows that at any time before resolution, but withdrawal is final and the same transaction cannot be disputed again under this r"
+      ],
+      "latency_ms": 22323,
+      "tokens": 69034,
+      "tool_calls": [
+        {
+          "name": "create_dispute",
+          "arguments": {
+            "transaction_id": "TX-0401",
+            "reason_code": "duplicate_charge"
+          },
+          "result": {
+            "dispute_id": 1,
+            "status": "open"
+          }
+        }
+      ]
+    }
+  ]
+}
