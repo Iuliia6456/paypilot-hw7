@@ -234,6 +234,38 @@ Earlier failed reports are retained.
 Token and time checks compare medians, so they do not catch every outlier.
 For example, H03 passed despite one run taking 86.5 seconds.
 
+### Latency budget justification
+
+The table compares the configured latency limits with the median
+dialogue time from five clean runs in the final verification report:
+`reports/l05_dialogs-clean-20261030T230017.json`.
+
+Margin = (latency limit / clean median - 1) × 100%.
+
+| Case | Clean median, ms | latency_ms limit | Limit / median | Margin |
+|---|---:|---:|---:|---:|
+| CONV-H01 | 23,201 | 29,000 | 1.25× | 25.0% |
+| CONV-H02 | 21,187 | 25,000 | 1.18× | 18.0% |
+| CONV-H03 | 17,969 | 22,000 | 1.22× | 22.4% |
+| CONV-H04 | 33,407 | 38,000 | 1.14× | 13.8% |
+| CONV-H05 | 16,742 | 23,000 | 1.37× | 37.4% |
+| C07-BUDGET | 21,556 | 35,000 | 1.62× | 62.4% |
+
+H01-H05 limits were initially calculated from clean calibration
+medians with a 20% allowance, rounded up to the next 1,000 ms.
+The table shows their actual margins against the later independent
+verification batch; these differ because response times vary.
+
+C07-BUDGET retains the lesson's provisional 35,000 ms limit.
+Against our clean median, this allows 62.4% extra time.
+We accept this wider margin as a check in the event of a significant slowdown.;
+the token budget provides the more sensitive check for excess
+history processing.
+
+These limits apply to the median of five runs, not to every run.
+They therefore do not guarantee a maximum response time for an
+individual dialogue.
+
 ### Threshold calibration: CONV-H05
 
 Model: anthropic/claude-haiku-5.5.
